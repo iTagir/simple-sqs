@@ -14,9 +14,7 @@ func main() {
 		fmt.Println("failed to create session,", err)
 		return
 	}
-
 	svc := sqs.New(sess, &aws.Config{Region: aws.String("eu-west-1")})
-
 	params := &sqs.SendMessageInput{
 		MessageBody:  aws.String("a line or sequence of people or vehicles awaiting their turn to be attended to or to proceed."),
 		QueueUrl:     aws.String("https://sqs.eu-west-1.amazonaws.com/259764441114/Learn"),
@@ -34,6 +32,5 @@ func main() {
 		return
 	}
 
-	// Pretty-print the response data.
 	fmt.Println(resp)
 }
